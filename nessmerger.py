@@ -296,7 +296,7 @@ def writeXlsx(reports, directory):
     # ScanTargets sheet
     targetsSheet = workbook.add_worksheet('ScanTargets')
     targetsSheet.set_column(0, 0, 35)
-    targetsSheet.set_column(1, 1, 20)
+    targetsSheet.set_column(1, 1, 45)
 
     row = 2
     for report in reports:
@@ -380,11 +380,11 @@ def writeXlsx(reports, directory):
                 )
                 row += 1
 
-    addSeveritySheet(workbook, 'Critical', criticals)
-    addSeveritySheet(workbook, 'High', highs)
-    addSeveritySheet(workbook, 'Medium', mediums)
-    addSeveritySheet(workbook, 'Low', lows)
-    addSeveritySheet(workbook, 'Informational', infos)
+    if len(criticals) > 0   :   addSeveritySheet(workbook, 'Critical', criticals)
+    if len(highs) > 0       :   addSeveritySheet(workbook, 'High', highs)
+    if len(mediums) > 0     :   addSeveritySheet(workbook, 'Medium', mediums)
+    if len(lows) > 0        :   addSeveritySheet(workbook, 'Low', lows)
+    if len(infos) > 0       :   addSeveritySheet(workbook, 'Informational', infos)
 
     workbook.close()
     print(f'\n[*] Report written to {fname}')
@@ -427,5 +427,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-  
- 
+
