@@ -1,0 +1,4 @@
+*.xlsx
+*/__pycache__/*
+testdata/*
+*.nessus
